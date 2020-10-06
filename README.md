@@ -10,3 +10,8 @@ Today, multi-instance and Autofac are essential pieces of Nightingale. This repo
 1. Open `.sln` file
 1. Press F5 to launch app in debug mode
 1. Once the app is open, you can open a new instance by holding `Shift` then clicking the taskbar icon.
+
+# How to understand this sample
+
+- Clone and review the code to see where things are.
+- Review the diffs of the commits. I purposefully set up the code-related commits to incrementally add pieces one by one. For example, one commit adds dependency injection without Autofac. The next commit adds Autofac. I did this to help folks understand each intermediate step from start to finish.
