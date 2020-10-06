@@ -1,4 +1,5 @@
-﻿using MultiInstanceWithAutofac.Services;
+﻿using Autofac;
+using MultiInstanceWithAutofac.Services;
 using MultiInstanceWithAutofac.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,16 @@ namespace MultiInstanceWithAutofac.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private MainPageViewModel Vm { get; set; } = new MainPageViewModel(new IncrementService());
+        private MainPageViewModel Vm { get; set; }
 
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Vm = App.Container.Resolve<MainPageViewModel>();
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using MultiInstanceWithAutofac.Services;
+using MultiInstanceWithAutofac.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +25,8 @@ namespace MultiInstanceWithAutofac
     /// </summary>
     sealed partial class App : Application
     {
+        public static IContainer Container { get; set; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -30,6 +35,15 @@ namespace MultiInstanceWithAutofac
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            SetupContainer();
+        }
+
+        private void SetupContainer()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<IncrementService>().As<IIncrementService>();
+            builder.RegisterType<MainPageViewModel>();
+            Container = builder.Build();
         }
 
         /// <summary>
