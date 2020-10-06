@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultiInstanceWithAutofac.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace MultiInstanceWithAutofac.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private MainPageViewModel Vm { get; set; } = new MainPageViewModel();
+
         public MainPage()
         {
             this.InitializeComponent();
