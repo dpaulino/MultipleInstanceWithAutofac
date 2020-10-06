@@ -4,7 +4,9 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"
+  IgnorableNamespaces="uap mp desktop4 iot2">
 
   <Identity
     Name="ba4c3af5-ea00-43f1-8015-c5aa69fb4f64"
@@ -30,6 +32,8 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
+	  desktop4:SupportsMultipleInstances="true"
+	  iot2:SupportsMultipleInstances="true"
       EntryPoint="MultiInstanceWithAutofac.App">
       <uap:VisualElements
         DisplayName="MultiInstanceWithAutofac"
